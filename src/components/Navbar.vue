@@ -41,19 +41,19 @@
         </li>
 
         <li class="nav-item dropdown">
-        <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Contas
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Lista de Desejos</router-link>
-          <router-link class="dropdown-item" v-else :to="{name : 'Wishlist'}" >Lista de Desejos</router-link>
-          <router-link class="dropdown-item"  :to="{name: 'Admin'}">Admin</router-link>
-          <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Entrar</router-link>
-          <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signup'}">Inscrever-se</router-link>
-          <a class="dropdown-item" v-if="token" href="#" @click="signout">
-            Sair
-          </a>
-        </div>
+            <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Contas
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Lista de Desejos</router-link>
+              <router-link class="dropdown-item" v-else :to="{name : 'Wishlist'}" >Lista de Desejos</router-link>
+              <router-link class="dropdown-item"  :to="{name: 'Admin'}">Admin</router-link>
+              <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Entrar</router-link>
+              <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signup'}">Inscrever-se</router-link>
+              <a class="dropdown-item" v-if="token" href="#" @click="signout">
+                Sair
+              </a>
+            </div>
         </li>
 
         <li class="nav-item">
