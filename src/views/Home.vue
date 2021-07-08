@@ -44,7 +44,7 @@
 <script>
 
 import ProdutoBox from "../components/Produto/ProdutoBox.vue"
-
+    
 
 
 export default {

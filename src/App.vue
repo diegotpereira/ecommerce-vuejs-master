@@ -1,7 +1,12 @@
 <template>
      <navbar />
      <div style="min-height: 60vh">
-       <router-view></router-view>
+       <router-view v-if="products">
+         :baseURL="baseURL"
+         :products="products"
+         @fetchData = "fetchData"
+         @refreshNav = "refreshNav"
+       </router-view>
      </div>
      <Footer />
 </template>
