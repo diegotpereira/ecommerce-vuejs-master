@@ -18,6 +18,25 @@
         this.$router.push({ name: 'ShowDetails', params: { id : this.product.id } })
         }
     }
-    }
+  }
 </script>
 
+<style>
+.card {
+  width: 20rem;
+  height: 24rem;
+}
+
+.product-card img:hover {
+  cursor:pointer;
+}
+
+.product-card .name:hover {
+  cursor:pointer;
+}
+
+p.name {
+  font-family: 'Courgette', cursive;
+  font-size: 30px;
+}
+</style>
