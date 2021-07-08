@@ -82,7 +82,9 @@ export default {
         background-size: cover !important;
     }
 
-   
+   #background-div {
+     background: url(../assets/homepage2.jpg)
+   }
 
     #heading {
         text-decoration: none;

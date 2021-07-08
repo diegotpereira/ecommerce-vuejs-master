@@ -26,30 +26,34 @@ export default {
 }
 </script>
 
-<style scoped>
-.embed-responsive .card-img-top {
-    object-fit: cover;
+<style>
+
+
+.page-holder {
+  min-height: 100vh;
 }
 
-a {
-    text-decoration: none;
+.bg-cover {
+  background-size: cover !important;
 }
 
-.card-title {
-    color: #484848;
-    font-size: 1.1rem;
-    font-weight:400;
+#background-div {
+  
 }
 
-.card-title:hover {
-    font-weight: bold;
+#heading {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  opacity: 0.8;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-.card-text {
-    font-size: 0.9rem;
+#content {
+  opacity: 0.8;
 }
 
-#edit-product {
-    float: right;
+h2 {
+  font-family: 'Josefin Sans', sans-serif;
 }
 </style>

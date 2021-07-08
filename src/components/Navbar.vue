@@ -2,7 +2,7 @@
 <!--    Logo-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <router-link class="navbar-brand" :to="{name : 'Home'}">
-      <img id="logo" src="" />
+      <img id="logo" src="../assets/icon.png" />
     </router-link>
 
     <!--    Burger Button-->
@@ -46,8 +46,10 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Lista de Desejos</router-link>
-          <router-link class="dropdown-item" :to="{name : 'Wishlist'}">Lista de Desejos</router-link>
+          <router-link class="dropdown-item" v-else :to="{name : 'Wishlist'}" >Lista de Desejos</router-link>
+          <router-link class="dropdown-item"  :to="{name: 'Admin'}">Admin</router-link>
           <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Entrar</router-link>
+          <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signup'}">Inscrever-se</router-link>
           <a class="dropdown-item" v-if="token" href="#" @click="signout">
             Sair
           </a>
@@ -55,11 +57,11 @@
         </li>
 
         <li class="nav-item">
-          
+          <router-link class="nav-link text-light" :to="{name : 'Order'}">Pedidos</router-link>
         </li>
 
         <li class="nav-item">
-          
+          <router-link class="text-light" :to="{name : 'Cart'}"><i class="fa fa-shopping-cart" style="font-size:36px"></i></router-link>
         </li>
       </ul> 
     </div>
