@@ -39,7 +39,7 @@
    
           </div>
         </li>
-
+        <!-- DropDown Conta -->
         <li class="nav-item dropdown">
             <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Contas
@@ -70,6 +70,8 @@
 </template>
 
 <script>
+import swal from 'sweetalert';
+
 export default {
   name: "Navbar",
   data() {
@@ -84,11 +86,11 @@ export default {
       this.token = null;
       this.$router.push({ name: 'Home'});
 
-     /* swal({
+      swal({
         text: "Você sai da conta. Entre novamente",
         icon: "success",
         closeOnClickOutSide: false,
-      }); */
+      });
     }
   },
 

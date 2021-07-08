@@ -44,13 +44,12 @@
 <script>
 
 import ProdutoBox from "../components/Produto/ProdutoBox.vue"
-import ProdutoCard from "../components/Produto/ProdutoCard.vue"
 
 
 export default {
 
     name: 'Home',
-    components : {  ProdutoBox },
+    components : { ProdutoBox },
     props: [ "baseURL", "products"],
     emits: ["fetchData", "refreshNav" ],
 
