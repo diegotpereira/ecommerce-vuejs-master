@@ -47,6 +47,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Lista de Desejos</router-link>
           <router-link class="dropdown-item" :to="{name : 'Wishlist'}">Lista de Desejos</router-link>
+          <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Entrar</router-link>
           <a class="dropdown-item" v-if="token" href="#" @click="signout">
             Sair
           </a>
