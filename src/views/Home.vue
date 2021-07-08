@@ -34,11 +34,43 @@
 
         <div class="row">
             <div v-for="index in this.product_size" :key="index" class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
-                <productBox :product="products[index-1]"></productBox>
+                <ProdutoBox :product="products[index-1]"></ProdutoBox>
             </div>
         </div>
     </div>
 </template>
+
+
+<script>
+
+import ProdutoBox from "../components/Produto/ProdutoBox.vue"
+
+
+
+export default {
+
+    name: 'Home',
+    components : {  ProdutoBox },
+    props: [ "products"],
+    emits: ["fectData", "refreshNav" ],
+
+    data() {
+        return {
+            product_size: 0
+        }
+    },
+
+    mounted() {
+        this.product_size = Object.keys(this.products).length
+
+        if (this.product_size > 8) {
+            this.product_size/=2
+            this.product_size = Math.floor(this.product_size)
+        }
+    }
+    
+}
+</script>
 
 <style>
     .page-holder {
@@ -50,9 +82,7 @@
         background-size: cover !important;
     }
 
-    #background-div {
-
-    }
+   
 
     #heading {
         text-decoration: none;
