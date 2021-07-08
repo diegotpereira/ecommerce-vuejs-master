@@ -22,11 +22,11 @@ export default {
       this.token = null;
       this.$router.push({ name: 'Home'});
 
-      swal({
+     /* swal({
         text: "Você sai da conta. Entre novamente",
         icon: "success",
         closeOnClickOutSide: false,
-      });
+      }); */
     }
   },
 

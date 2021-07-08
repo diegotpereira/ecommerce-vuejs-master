@@ -44,7 +44,7 @@
 <script>
 
 import ProdutoBox from "../components/Produto/ProdutoBox.vue"
-    
+import ProdutoCard from "../components/Produto/ProdutoCard.vue"
 
 
 export default {
@@ -52,7 +52,7 @@ export default {
     name: 'Home',
     components : {  ProdutoBox },
     props: [ "products"],
-    emits: ["fectData", "refreshNav" ],
+    emits: ["fetchData", "refreshNav" ],
 
     data() {
         return {

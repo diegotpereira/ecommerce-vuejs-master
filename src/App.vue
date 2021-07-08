@@ -1,11 +1,11 @@
 <template>
-     <navbar />
+     <Navbar />
      <div style="min-height: 60vh">
-       <router-view v-if="products">
+       <router-view v-if="products"
          :baseURL="baseURL"
          :products="products"
          @fetchData = "fetchData"
-         @refreshNav = "refreshNav"
+         @refreshNav = "refreshNav">
        </router-view>
      </div>
      <Footer />
@@ -16,6 +16,7 @@
 <script>
 import Navbar from "./components/Navbar.vue"
 import Footer from "./components/Footer.vue"
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -28,7 +29,32 @@ export default {
   },
   
   components : { Footer , Navbar},
+    methods : {
+    async fetchData() {
+      // fetch products
+      await axios.get(this.baseURL + "product/")
+      .then(res => this.products = res.data)
+      .catch(err => console.log(err))
+      //fetch categories
+      await axios.get(this.baseURL + "category/")
+      .then(res => this.categories = res.data)
+      .catch(err => console.log(err))
+    },
+    refreshNav() {
+      this.key += 1;
+    }
+  },
+  mounted() {
+    this.fetchData();
+  }
   
    
 }
 </script>
+
+
+<style>
+html{
+  overflow-y: scroll;
+}
+</style>
