@@ -51,7 +51,7 @@ export default {
 
     name: 'Home',
     components : {  ProdutoBox },
-    props: [ "products"],
+    props: [ "baseURL", "products"],
     emits: ["fetchData", "refreshNav" ],
 
     data() {
