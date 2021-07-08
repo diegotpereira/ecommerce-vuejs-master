@@ -78,7 +78,6 @@ export default {
     }
 
     .bg-cover {
-
         background-size: cover !important;
     }
 

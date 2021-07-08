@@ -43,7 +43,7 @@
       <div class="row">
         <div class="col-12">
           <div class="text-center py-5">
-            <img id="logo" src="" />
+            <img id="logo" src="../assets/icon.png" />
           </div>
         </div>
       </div>
@@ -52,38 +52,36 @@
 </template>
 
 <script>
-export default {
-  name : "Footer"
-}
+  export default {
+    name : "Footer"
+  }
 </script>
 
 <style>
-footer {
-  margin-top : 100px;
-  background-color:#232F3E;
-  font-size:16px;
-}
+  footer {
+    margin-top : 100px;
+    background-color:#232F3E;
+    font-size:16px;
+  }
 
-li {
-  padding-left: 0;
-  padding-bottom: 10px;
-}
+  li {
+    padding-left: 0;
+    padding-bottom: 10px;
+  }
 
-a {
-  text-decoration: none;
-}
+  a {
+    text-decoration: none;
+  }
 
-.footer-link {
-  color: #DDD;
-}
+  .footer-link {
+    color: #DDD;
+  }
 
-#logo {
-  width: 150px;
-}
+  #logo {
+    width: 150px;
+  }
 
-footer {
-  font-family: 'Roboto', sans-serif;
-}
-
-
+  footer {
+    font-family: 'Roboto', sans-serif;
+  }
 </style>

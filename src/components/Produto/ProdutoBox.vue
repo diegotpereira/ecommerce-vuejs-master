@@ -1,7 +1,7 @@
 <template>
     <div class="card h-100">
         <div class="embed-responsive embed-responsive-16by9">
-            <img class="card-img-top embed-responsive-item" alt="" >
+            <img class="card-img-top embed-responsive-item" :src="product.imageURL" alt="Product Image">
         </div>
 
         <div class="card-body">
@@ -26,34 +26,31 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
-
-.page-holder {
-  min-height: 100vh;
+.embed-responsive .card-img-top {
+  object-fit: cover;
 }
 
-.bg-cover {
-  background-size: cover !important;
-}
-
-#background-div {
-  
-}
-
-#heading {
+a {
   text-decoration: none;
-  font-family: 'Roboto', sans-serif;
+}
+
+.card-title {
+  color: #484848;
+  font-size: 1.1rem;
   font-weight: 400;
-  opacity: 0.8;
-  font-family: 'Josefin Sans', sans-serif;
 }
 
-#content {
-  opacity: 0.8;
+.card-title:hover {
+  font-weight: bold;
 }
 
-h2 {
-  font-family: 'Josefin Sans', sans-serif;
+.card-text {
+  font-size: 0.9rem;
+}
+
+#edit-product {
+  float: right;
 }
 </style>

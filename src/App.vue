@@ -1,14 +1,14 @@
 <template>
-     <Navbar />
-     <div style="min-height: 60vh">
-       <router-view v-if="products"
-         :baseURL="baseURL"
-         :products="products"
-         @fetchData = "fetchData"
-         @refreshNav = "refreshNav">
-       </router-view>
-     </div>
-     <Footer />
+     <Navbar :key="key"  v-if="!['Signup', 'Signin'].includes($route.name)"/>
+      <div style="min-height: 60vh">
+        <router-view v-if="products"
+          :baseURL="baseURL"
+          :products="products"
+          @fetchData = "fetchData"
+          @refreshNav = "refreshNav">
+        </router-view>
+      </div>
+     <Footer v-if="!['Signup', 'Signin'].includes($route.name)"/>
 </template>
 
 
@@ -17,6 +17,7 @@
 import Navbar from "./components/Navbar.vue"
 import Footer from "./components/Footer.vue"
 import axios from 'axios'
+
 export default {
   data() {
     return {
