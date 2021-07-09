@@ -4,8 +4,8 @@
 
     <div class="container py-5">
       <header class="text-left text-white py-5">
-        <h3 class="mb-4 rounded"><a href="#start-shopping" class="bg-white px-2 py-2 rounded" id="heading">Start Shopping</a></h3>
-        <p id="content" class="lead mb-0 bg-dark p-1 rounded">O Simple Coding Market é apenas para fins educacionais. Ele pode ser usado por desenvolvedores para aprender como desenvolver um aplicativo de comércio eletrônico completo com back-end e front-end para Web e Android</p>
+        <h3 class="mb-4 rounded"><a href="#start-shopping" class="bg-white px-2 py-2 rounded" id="heading">Comece a Comprar</a></h3>
+        <p id="content" class="lead mb-0 bg-dark p-1 rounded">Aplicativo de comércio eletrônico completo com back-end e front-end para Web e Android</p>
       </header>
     </div>
   </div>
@@ -49,7 +49,7 @@
 import ProductCard from "../components/Product/ProductCard.vue"
 import ProductBox from "../components/Product/ProductBox"
 import CategoryCard from "../components/Category/CategoryCard.vue"
-import CategoryBox from "../components/Category/CategoryBox";
+import CategoryBox from "../components/Category/CategoryBox"
 
 export default {
 
