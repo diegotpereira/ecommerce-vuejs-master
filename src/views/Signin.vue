@@ -25,14 +25,16 @@
                          <input type="password" class="form-control" v-model="password" required>
                      </div>
 
-                     <small class="fomr-text text-muted">Ao continuar, você concorda com as Condições de Uso e Aviso de Privacidade da Amazon.</small>
+                     <small class="form-text text-muted">Ao continuar, você concorda com as Condições de Uso e Aviso de Privacidade da Amazon.</small>
                      <button type="submit" class="btn btn-primary mt-2 py-0">
                          Continuar
+
+                           <div v-if="loading" class="spinner-border spinner-border-sm" role="status">
+                                <span class="sr-only">Carregando...</span>
+                           </div>
                      </button>
 
-                     <div v-if="loading" class="spinner-border spinner-border-sm" role="status">
-                         <span class="sr-only">Carregando...</span>
-                     </div>
+                   
                  </form>
                  <hr>
                  <small class="form-text text-muted pt-2 pl-4 text-center">Novo na Amazon?</small>
@@ -43,6 +45,9 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
+import swal from 'sweetalert';
+
 export default {
     name: 'Signin',
     props: ["baseURL"],
@@ -54,8 +59,47 @@ export default {
               password: null,
               loading: null
         }
+   },
+
+methods : {
+    async signin(e) {
+        e.preventDefault();
+        this.loading = true;
+
+        const user = {
+            email : this.email,
+            password: this.password
+        }
+
+        await axios({
+            method: 'post',
+            url: this.baseURL + "user/signIn",
+            data : JSON.stringify(user),
+
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => {
+            localStorage.setItem('token', res.data.token);
+            this.$emit("refreshNav");
+            this.$router.back();
+        }).catch(err => {
+            swal({
+                text: "Incapaz de fazer o seu login!",
+                icon: "error",
+                closeOnClickOutside: false,
+            });
+            console.log(err);
+        })
+        .finally(() => {
+            this.loading = false;
+        })
+    }
 },
 
+mounted() {
+    this.loading = false;
+}
 }
 </script>
 <style scoped>

@@ -36,7 +36,6 @@
             <router-link class="dropdown-item" :to="{name : 'Home'}">Home</router-link>
             <router-link class="dropdown-item" :to="{name : 'Product'}">Produto</router-link>
             <router-link class="dropdown-item" :to="{name : 'Category'}">Categoria</router-link>
-   
           </div>
         </li>
         <!-- DropDown Conta -->
@@ -89,7 +88,7 @@ export default {
       swal({
         text: "Você sai da conta. Entre novamente",
         icon: "success",
-        closeOnClickOutSide: false,
+        closeOnClickOutside: false,
       });
     }
   },

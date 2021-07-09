@@ -30,6 +30,7 @@ import Cart from "../views/Cart/Cart.vue";
 import Category from "../views/Category/Category.vue";
 import ListProducts from "../views/Category/ListProducts.vue";
 import EditCategory from "../views/Category/EditCategory.vue";
+import AddCategory from "../views/Category/AddCategory.vue";
 
 
 const routes = [
@@ -55,10 +56,10 @@ const routes = [
     name: "Home",
     component: Home,
   },
-{
+  {
     path: "/about",
     name: "About",
-      component: About,
+    component: About,
   },
   // Produto Rotas
   {
@@ -67,9 +68,9 @@ const routes = [
     component: Product,
   },
 
-   {
-    path : '/product/show/:id',
-    name : 'ShowDetails',
+  {
+    path: '/product/show/:id',
+    name: 'ShowDetails',
     component: ShowDetails
   },
 
@@ -78,7 +79,7 @@ const routes = [
     name: 'EditProduct',
     component: EditProduct,
   },
-    {
+  {
     path: '/admin/product/add',
     name: 'AddProduct',
     component: AddProduct
@@ -93,44 +94,55 @@ const routes = [
 
   // Pedidos Rota
   {
-    path : '/order',
-    name : 'Order',
-    component : Order
+    path: '/order',
+    name: 'Order',
+    component: Order
   },
 
- 
+
 
   // Carrinho Rota
   {
-    path : '/cart',
-    name : 'Cart',
-    component : Cart
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
   },
 
-    // Categoria Rotas
+  // Categoria Rotas
 
-    {
-      path: '/category',
-      name: "Category",
-      component: "Category",
-    },
+  {
+    path: '/category',
+    name: 'Category',
+    component: Category,
+  },
 
-    {
+  {
     path: '/admin/category',
     name: 'AdminCategory',
     component: Category
   },
-   {
-    path : '/category/show/:id',
-    name : 'ListProducts',
+  {
+    path: '/admin/category/add',
+    name: 'AddCategory',
+    component: AddCategory
+  },
+
+  {
+    path: '/admin/category/:id',
+    name: 'EditCategory',
+    component: EditCategory
+  },
+  {
+    path: '/category/show/:id',
+    name: 'ListProducts',
     component: ListProducts
   },
   {
     path: '/admin/category/:id',
     name: 'EditCategory',
     component: EditCategory
-  }
-  
+  },
+
 ];
 
 const router = createRouter({

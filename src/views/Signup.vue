@@ -60,61 +60,64 @@
         
     </div>
 </template>
+
 <script>
 import axios from 'axios';
 import swal from 'sweetalert';
+
+
 export default {
-    name: 'Signin',
-    props: ["baseURL"],
-
-    data() {
-        return {
-            email: null,
-            password: null,
-            loading: null
-        }
-    },
-
-    methods : {
-        async signin(e) {
-            e.preventDefault();
-            this.loading = true;
-
-            const user = {
-                email: this.email,
-                password: this.password
-            }
-
-            await axios ({
-                method: 'post',
-                url: this.baseURL + "user/signIn",
-                data : JSON.stringify(user),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(res => {
-                localStorage.setItem('token', res.data.token);
-                this.$emit("refreshNav");
-                this.$router.back();
-            })
-            .catch(err => {
-                swal({
-                    text: "Incapaz de fazer o seu login!",
-                    icon: "error",
-                    closeOnClickOutSide: false,
-                });
-                console.log(err);
-            })
-            .finally(() => {
-                this.loading = false;
-            })
-        }
-    },
-
-    mounted() {
-        this.loading = false;
+  name: 'Signup',
+  props : ["baseURL"],
+  data() {
+    return {
+      email: null,
+      firstName: null,
+      lastName: null,
+      password: null,
+      passwordConfirm: null
     }
+  },
+  methods : {
+    async signup(e) {
+      e.preventDefault();
+      e.stopPropragation();
+      if (this.password === this.passwordConfirm) {
+        const user = {
+          email: this.email,
+          firstName: this.firstName,
+          lastName: this.lastName,
+          password: this.password
+        }
+
+        await axios({
+          method : 'post',
+          url : this.baseURL + "user/signup",
+          data : JSON.stringify(user),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(res => {
+          this.$router.replace("/");
+          swal({
+            text: "A inscrição do usuário foi bem-sucedida. Por favor entre.",
+            icon: "success",
+            closeOnClickOutside: false,
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      } else {
+        swal({
+          text: "Erro! As senhas não coincidem!.",
+          icon: "error",
+          closeOnClickOutside: false,
+        });
+      }
+    }
+  }
 }
 </script>
 <style scoped>
@@ -135,7 +138,7 @@ export default {
 }
 
 #logo {
-    widows: 150px;
+    width: 150px;
 }
 
 @media only screen and (min-width: 992px) {
