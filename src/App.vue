@@ -4,6 +4,7 @@
         <router-view v-if="products && categories"
           :baseURL="baseURL"
           :products="products"
+          :categories="categories"
           @fetchData = "fetchData"
           @refreshNav = "refreshNav">
         </router-view>
