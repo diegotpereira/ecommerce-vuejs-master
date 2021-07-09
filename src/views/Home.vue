@@ -17,28 +17,29 @@
   <div id="start-shopping" class="container">
     <div class="row">
       <div class="col-12 text-left">
-        <h2 class="pt-3">Top Categories</h2>
+        <h2 class="pt-3">Principais Categorias</h2>
       </div>
     </div>
     <div class="row">
       <div v-for="index in this.category_size" :key="index" class="col-md-6 col-xl-4 col-12 pt-3  justify-content-around d-flex">
         <CategoryBox :category="categories[index-1]">
+          <Category-card></Category-card>
         </CategoryBox>
       </div>
     </div>
   </div>
 
   <hr>
-  <div class="container">
+   <div class="container">
     <div class="row">
       <div class="col-12 text-left">
-        <h2 class="pt-3">Top Products</h2>
+        <h2 class="pt-3">Principais Produtos</h2>
       </div>
     </div>
     <div class="row">
       <div v-for="index in this.product_size" :key="index" class="col-md-6 col-xl-4 col-12 pt-3  justify-content-around d-flex">
-        <ProdutoBox :product="products[index-1]">
-        </ProdutoBox>
+        <ProductBox :product="products[index-1]">
+        </ProductBox>
       </div>
     </div>
   </div>
@@ -50,15 +51,15 @@
 
 <script>
 
-import ProdutoCard from "../components/Produto/ProdutoCard.vue"
-import ProdutoBox from "../components/Produto/ProdutoBox"
+import ProductCard from "../components/Product/ProductCard.vue"
+import ProductBox from "../components/Product/ProductBox"
 import CategoryCard from "../components/Category/CategoryCard.vue"
 import CategoryBox from "../components/Category/CategoryBox";
 
 export default {
 
     name: 'Home',
-    components : { ProdutoBox, ProdutoCard, CategoryCard, CategoryBox },
+    components : { ProductBox, ProductCard, CategoryCard, CategoryBox },
     props: [ "baseURL", "products", "categories"],
     emits: ["fetchData", "refreshNav" ],
 

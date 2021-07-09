@@ -22,6 +22,12 @@ import Order from "../views/Order/Order.vue";
 // Carrinho Rota
 import Cart from "../views/Cart/Cart.vue";
 
+
+// Categoria Rotas
+import Category from "../views/Category/Category.vue";
+import ListProducts from "../views/Category/ListProducts.vue";
+
+
 const routes = [
   {
     path: '/signin',
@@ -91,6 +97,17 @@ const routes = [
       name: "Category",
       component: "Category",
     },
+
+    {
+    path: '/admin/category',
+    name: 'AdminCategory',
+    component: Category
+  },
+   {
+    path : '/category/show/:id',
+    name : 'ListProducts',
+    component: ListProducts
+  }
   
 ];
 
