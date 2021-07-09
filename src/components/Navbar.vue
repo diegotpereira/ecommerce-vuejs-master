@@ -2,7 +2,7 @@
   <!--    Logo-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <router-link class="navbar-brand" :to="{name : 'Home'}">
-      <img id="logo" src="../assets/icon.png" />
+      <img id="logo" src="" />
     </router-link>
 
     <!--    Burger Button-->
@@ -12,11 +12,11 @@
     </button>
 
   
-    <!--      Search Bar-->
+    <!--      Buscar Bar-->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <form class="form-inline ml-auto mr-auto">
         <div class="input-group">
-          <input size="100" type="text" class="form-control" placeholder="Search Items" aria-label="Username" aria-describedby="basic-addon1">
+          <input size="100" type="text" class="form-control" placeholder="Buscar um item..." aria-label="Username" aria-describedby="basic-addon1">
           <div class="input-group-prepend">
             <span class="input-group-text" id="search-button-navbar">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">

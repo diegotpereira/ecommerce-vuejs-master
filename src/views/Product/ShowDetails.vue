@@ -5,9 +5,9 @@
 
           </div>
           <div class="col-md-4 col-12">
-              <img :src="product.imageURl" :alt="product.name" class="img-fluid">
+              <img :src="product.imageURL" :alt="product.name" class="img-fluid">
           </div>
-          <div class="col-md-6 col-12 pt-md-0">
+          <div class="col-md-6 col-12 pt-3 pt-md-0">
               <h4>{{product.name}}</h4>
               <h6 class="category font-italic">{{category.categoryName}}</h6>
               <p><span class="font-weight-bold">Descrição: -</span> <br>{{product.description}}</p>
@@ -58,6 +58,7 @@
 
 <script>
 import swal from 'sweetalert';
+import axios from 'axios';
 export default {
 
     data(){
@@ -115,7 +116,7 @@ export default {
         },
     },
     mounted() {
-        this.id = this.$router.params.id;
+        this.id = this.$route.params.id;
         this.product = this.products.find(product => product.id == this.id);
         this.category = this.categories.find(category => category.id == this.product.categoryId);
         this.token = localStorage.getItem('token');

@@ -1,7 +1,7 @@
 <template>
      <Navbar :key="key"  v-if="!['Signup', 'Signin'].includes($route.name)"/>
       <div style="min-height: 60vh">
-        <router-view v-if="products"
+        <router-view v-if="products && categories"
           :baseURL="baseURL"
           :products="products"
           @fetchData = "fetchData"
@@ -16,9 +16,12 @@
 <script>
 import Navbar from "./components/Navbar.vue"
 import Footer from "./components/Footer.vue"
-import axios from 'axios'
 
+
+import axios from 'axios';
 export default {
+
+  
   data() {
     return {
       baseURL : "https://limitless-lake-55070.herokuapp.com/",
@@ -43,7 +46,7 @@ export default {
     },
     refreshNav() {
       this.key += 1;
-    }
+    } 
   },
   mounted() {
     this.fetchData();

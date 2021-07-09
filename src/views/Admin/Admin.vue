@@ -1,5 +1,5 @@
 <template>
-    <div class="adminPenel container">
+    <div class="adminPanel container">
         <router-link :to="{name : 'AdminProduct' }">
             <button type="button" class="btn btn-primary btn-lg">Administrador de Produtos</button>
         </router-link>

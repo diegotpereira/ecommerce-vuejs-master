@@ -13,9 +13,8 @@ import Admin from "../views/Admin/Admin.vue";
 
 import Product from "../views/Product/Product.vue";
 import Wishlist from "../views/Product/Wishlist.vue";
+import ShowDetails from "../views/Product/ShowDetails.vue";
 
-
-import Category from "../views/Category/Category.vue";
 
 // Pedidos Rota
 import Order from "../views/Order/Order.vue";
@@ -64,13 +63,6 @@ const routes = [
     component: Wishlist
   },
 
-  // Categoria Rotas
-
-  {
-    path: '/category',
-    name: "Category",
-    component: "Category",
-  },
 
   // Pedidos Rota
   {
@@ -79,12 +71,27 @@ const routes = [
     component : Order
   },
 
+  {
+    path : '/product/show/:id',
+    name : 'ShowDetails',
+    component: ShowDetails
+  },
+
   // Carrinho Rota
   {
     path : '/cart',
     name : 'Cart',
     component : Cart
-  }
+  },
+
+    // Categoria Rotas
+
+    {
+      path: '/category',
+      name: "Category",
+      component: "Category",
+    },
+  
 ];
 
 const router = createRouter({
