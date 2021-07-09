@@ -81,7 +81,6 @@ export default {
   methods : {
     async signup(e) {
       e.preventDefault();
-      e.stopPropragation();
       if (this.password === this.passwordConfirm) {
         const user = {
           email: this.email,
