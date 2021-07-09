@@ -20,7 +20,7 @@ import EditProduct from "../views/Product/EditProduct.vue";
 
 
 // Pedidos Rota
-import Order from "../views/Order/Order.vue";
+import Order from "../views/Orders/Order.vue";
 
 // Carrinho Rota
 import Cart from "../views/Cart/Cart.vue";

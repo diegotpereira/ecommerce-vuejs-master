@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h4 class="pt-3">Sua lista de desejos</h4>
+        <h4 class="pt-3">Sua lista de Compras</h4>
       </div>
     </div>
 

@@ -10,7 +10,7 @@
           <div class="col-md-6 col-12 pt-3 pt-md-0">
               <h4>{{product.name}}</h4>
               <h6 class="category font-italic">{{category.categoryName}}</h6>
-              <p><span class="font-weight-bold">Descrição: -</span> <br>{{product.description}}</p>
+              <!--<p><span class="font-weight-bold">Descrição: -</span> <br>{{product.description}}</p>--->
 
               <div class="d-flex flex-row justify-content-between">
                   <div class="input-group col-md-3 col-4 p-0">
@@ -32,11 +32,8 @@
                   <h5><strong>Caracteristicas</strong></h5>
 
                   <ul>
-                      <li>Caracteristicas</li>
-                      <li>Caracteristicas</li>
-                      <li>Caracteristicas</li>
-                      <li>Caracteristicas</li>
-                      <li>Caracteristicas</li>
+                      <li>{{category.description}}</li>
+                      <li>R$: {{product.price}}</li>
                   </ul>
               </div>
 
@@ -68,7 +65,7 @@ export default {
             id : null,
             token: null,
             isAddedToWishlist: false,
-            wishlistString: "Adicionar a lista de desejos",
+            wishlistString: "Adicionar a Lista de Compras",
             quantity: 1
         }
     },
@@ -81,7 +78,7 @@ export default {
             }).then((response) => {
                 if (response.status == 201) {
                     this.isAddedToWishlist = true;
-                    this.wishlistString = "Adicionado a lista de desejos"
+                    this.wishlistString = "Adicionado a Lista de Compras"
                 }
             }, (error) => {
                 console.log(error)
