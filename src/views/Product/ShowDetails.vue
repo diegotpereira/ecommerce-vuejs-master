@@ -63,8 +63,8 @@ export default {
 
     data(){
         return {
-            product : {},
-            category : {},
+            product : { },
+            category : { },
             id : null,
             token: null,
             isAddedToWishlist: false,

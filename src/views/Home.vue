@@ -5,12 +5,8 @@
     <div class="container py-5">
       <header class="text-left text-white py-5">
         <h3 class="mb-4 rounded"><a href="#start-shopping" class="bg-white px-2 py-2 rounded" id="heading">Start Shopping</a></h3>
-        <p id="content" class="lead mb-0 bg-dark p-1 rounded">Simple Coding Market is for educational purposes only. It can be used by developers to learn about developing an ecommerce application complete with backend and frontend for Web and Android</p>
-
+        <p id="content" class="lead mb-0 bg-dark p-1 rounded">O Simple Coding Market é apenas para fins educacionais. Ele pode ser usado por desenvolvedores para aprender como desenvolver um aplicativo de comércio eletrônico completo com back-end e front-end para Web e Android</p>
       </header>
-
-
-
     </div>
   </div>
 
@@ -23,7 +19,6 @@
     <div class="row">
       <div v-for="index in this.category_size" :key="index" class="col-md-6 col-xl-4 col-12 pt-3  justify-content-around d-flex">
         <CategoryBox :category="categories[index-1]">
-          <Category-card></Category-card>
         </CategoryBox>
       </div>
     </div>
@@ -59,7 +54,7 @@ import CategoryBox from "../components/Category/CategoryBox";
 export default {
 
     name: 'Home',
-    components : { ProductBox, ProductCard, CategoryCard, CategoryBox },
+    components : {  ProductBox, CategoryBox },
     props: [ "baseURL", "products", "categories"],
     emits: ["fetchData", "refreshNav" ],
 

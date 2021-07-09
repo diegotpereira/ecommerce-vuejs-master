@@ -26,6 +26,7 @@ import Cart from "../views/Cart/Cart.vue";
 // Categoria Rotas
 import Category from "../views/Category/Category.vue";
 import ListProducts from "../views/Category/ListProducts.vue";
+import EditCategory from "../views/Category/EditCategory.vue";
 
 
 const routes = [
@@ -107,6 +108,11 @@ const routes = [
     path : '/category/show/:id',
     name : 'ListProducts',
     component: ListProducts
+  },
+  {
+    path: '/admin/category/:id',
+    name: 'EditCategory',
+    component: EditCategory
   }
   
 ];

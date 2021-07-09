@@ -10,8 +10,8 @@
     </div>
     <div class="row">
         <div v-for="product of products" :key="product.id" class="col-md-6 col-xl-4 col-12 pt-3  justify-content-around d-flex">
-          <ProdutoBox :product="product">
-          </ProdutoBox>
+          <ProductBox :product="product">
+          </ProductBox>
         </div>
     </div>
   </div>
@@ -19,11 +19,11 @@
 
 
 <script>
-import ProdutoBox from "../../components/Produto/ProdutoBox.vue"
+import ProductBox from "../../components/Product/ProductBox.vue"
 
 export default {
   name: 'Product',
-  components : {ProdutoBox},
+  components : {ProductBox},
   props : [ "baseURL" , "products" ],
   mounted(){
     if (this.$route.name=='AdminProduct' && !localStorage.getItem('token')) {

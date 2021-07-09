@@ -1,12 +1,14 @@
 <template>
     <div class="card category-card">
         <img :src="category.imageUrl" class="card-img-top" alt="image" @click="listProducts">
-        <p class="name" @click="listProducts">
-            {{category.categoryName}}
-        </p>
-        <p class="card-text">
-            {{category.description}}    
-        </p>    
+        <div class="card-body">
+            <p class="name" @click="listProducts">
+                {{category.categoryName}}
+            </p>
+            <p class="card-text">
+                {{category.description}}    
+            </p> 
+        </div>
     </div>
 </template>
 
@@ -18,7 +20,7 @@ export default {
 
     methods : {
         listProducts() {
-            this.$router.push({ name: 'listProducts', params: {id : this.category.id}})
+            this.$router.push({ name: 'ListProducts', params: {id : this.category.id}})
         }
     }
 }
@@ -27,7 +29,7 @@ export default {
 
 <style>
 .card {
-    widows: 20rem;
+    width: 20rem;
     height: 24rem;
 }
 
@@ -40,7 +42,7 @@ export default {
 }
 
 p.name {
-    font-family: 'Courgutte', cursive;
+    font-family: 'Courgette', cursive;
     font-size: 30px;
 }
 </style>
