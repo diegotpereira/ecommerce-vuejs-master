@@ -27,7 +27,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0"
   },
-  "eslintConfig": { 
+  "eslintConfig": {
     "root": true,
     "env": {
       "node": true
@@ -40,7 +40,6 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      
       "strict": "off",
       "no-unused-vars": "off",
       "vue/no-unused-components": [
