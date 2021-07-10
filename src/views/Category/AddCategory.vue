@@ -23,7 +23,7 @@
                         <label>imageURL</label>
                         <input type="url" class="form-control" v-model="imageURL" required>
                     </div>
-                    <button type="button" class="btn btn-primary" @click="addCategory">Submit</button>
+                    <button type="button" class="btn btn-primary" @click="addCategory">Enviar</button>
                 </form>
             </div>
             <div class="col-3"></div>

@@ -5,7 +5,7 @@
                 <h4 class="pt-3">Seus Pedidos</h4>
             </div>
         </div>
-        <div v-if="orders" v-for="itr in len" :key="itr" class="row mt-2 pt-3 justify-content-around">
+        <div v-for="itr in len" :key="itr" class="row mt-2 pt-3 justify-content-around">
             <div class="col-2"></div>
                 <div class="col-md-3 embed-responsive embed-responsive-16by9">
                     <img v-bind:src="orderList[itr-1].imageURL" class="w-100 card-img-top embed-responsive-item">

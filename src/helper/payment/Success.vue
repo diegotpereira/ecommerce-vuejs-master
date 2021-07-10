@@ -20,11 +20,11 @@ export default {
 
     methods: {
         saveOrder() {
-            axios.post(this.baseURL + "order/add?token=" + this.token + "sessionId=" + this.sessionId)
+            axios.post(this.baseURL+"order/add/?token="+this.token+"&sessionId="+this.sessionId)
             .then(()=> {
                 window.location.href = '/order'
             }).catch((error) => {
-                console.log(error)
+                console.log(error);
             })
         }
     },

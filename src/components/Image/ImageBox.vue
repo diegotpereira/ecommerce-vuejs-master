@@ -2,7 +2,7 @@
   <div class="image-box">
     <img :src="image.url" :alt="image.name" class="img-fluid my-image" ref="rimage">
     <div class="middle">
-      <button class="btn btn-info" @click="copyToClipboard">Copy Address</button>
+      <button class="btn btn-info" @click="copyToClipboard">Copiar endereço</button>
     </div>
   </div>
 </template>
@@ -14,8 +14,6 @@ export default {
   methods : {
     copyToClipboard(){
       const image = this.$refs.rimage;
-      
-      // new element needs to be created before coping to clipboard
       const el = document.createElement('textarea');
       el.value = image.src;
       el.setAttribute('readonly', '');
@@ -27,7 +25,7 @@ export default {
       document.body.removeChild(el);
 
       swal({
-        text: "Image Address copied to Clipboard!",
+        text: "Endereço da imagem copiado para a área de transferência!",
         icon: "success",
         closeOnClickOutside: false,
       });

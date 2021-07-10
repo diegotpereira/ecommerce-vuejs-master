@@ -1,14 +1,14 @@
 <template>
     <div class="text-center">
         <div class="spinner-grow text-danger" role="status">
-            <span class="sr-sr-only">Carregando...</span>
+            <span class="sr-only">Carregando...</span>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'FaliedPayment',
+    name: 'FailedPayment',
 
     mounted() {
         localStorage.removeItem('sessionId')
