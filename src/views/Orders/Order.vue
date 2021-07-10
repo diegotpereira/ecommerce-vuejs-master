@@ -5,96 +5,100 @@
                 <h4 class="pt-3">Seus Pedidos</h4>
             </div>
         </div>
-        <div  class="row mt-2 pt-3 justify-content-around">
-            <div class="col-2">
-            </div>
-            <div class="col-md-3 embed-responsive embed-responsive-16by9">
-                <img v-bind:src="orderList[itr-1].imageURL" class="w-100 card-img-top embed-responsive-item">
-                </div>
+        <div v-if="orders" v-for="itr in len" :key="itr" class="row mt-2 pt-3 justify-content-around">
+            <div class="col-2"></div>
+                <div class="col-md-3 embed-responsive embed-responsive-16by9">
+                    <img v-bind:src="orderList[itr-1].imageURL" class="w-100 card-img-top embed-responsive-item">
+                </div>    
                 <div class="col-md-5 px-3">
-                    <h6 class="card-title">
-                        <router-link v-bind:to="'/order/'+orderList[itr-1].pid">
-                           Pedido Nº: {{itr}}
-                        </router-link>
-                    </h6>
-                    
-                    <p class="mb-0">
-                        {{orderList[itr-1].totalItems}}
-                        <span v-if="orderList[itr-1].totalItems > 1"></span>
-                    </p>
+                    <div class="card-block px-3">
+                        <h6 class="card-title">
+                            <router-link v-bind:to="'/order/'+orderList[itr-1].pid">
+                                Pedido Nº: {{itr}}
+                            </router-link>
+                        </h6>                        
+                        <p class="mb-0">
+                            {{orderList[itr-1].totalItems}}
+                            <span v-if="orderList[itr-1].totalItems > 1">s</span>
+                        </p>
 
-                    <p id="item-price" class="mb-0 font-weight-bold">
-                        Total da Compra : <sup>$</sup>{{totalCost[itr-1]}}
-                    </p>
+                        <p id="item-price" class="mb-0 font-weight-bold">
+                            Total da Compra : <sup>$</sup>{{totalCost[itr-1]}}
+                        </p>
 
-                    <p id="item-total-price">
-                        Pedido realizado em: {{orderdate[itr-1]}}
-                    </p>
+                        <p id="item-total-price">
+                            Pedido realizado em: {{orderdate[itr-1]}}
+                        </p>
+                    </div>
                 </div>
-            </div>
 
             <div class="col-2"></div>
-            <div class="col-12"></div>
+            <div class="col-12"><hr></div>
         </div>
     </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-    data() {
-        return {
-            order: [],
-            token: null,
-            len: 0,
-            orderList: [],
-            totalCost: [],
-            orderdate: []
-        }
-    },
+  data() {
+    return {
+      order: [],
+      token: null,
+      len: 0,
+      orderList: [],
+      totalCost: [],
+      orderdate: [],
+    };
+  },
 
-    props: ["baseURL"],
-    name: 'Order',
+  props: ["baseURL"],
+  name: "Order",
 
-    methods: {
-        listOrders() {
-            axios.get(`${this.baseURL}order/?token=${this.token}`).then((response)=> {
-                if (response.status == 200) {
-                    this.orders = response.data
-                    this.len = Object.keys(this.orders).length
-                    let i
+  methods: {
+    listOrders() {
+      axios.get(`${this.baseURL}order/?token=${this.token}`).then(
+        (response) => {
+          if (response.status == 200) {
+            this.orders = response.data;
+            this.len = Object.keys(this.orders).length;
+            let i;
 
-                    for(i=0; i < this.len; i ++) {
-                        this.totalCost[i] = this.orders[i].totalPrice
-                        this.orderdate.push((this.orders[i].createdDate).substring(0,10))
-                        this.orderList.push({
-                            pid: this.orders[i].id,
-                            imageURL: this.orders[i].ordersItems[0].product.imageURL,
-                            totalItems: this.orders[i].orderItems.length
-                        })
-                    }
-                }
-            },
-            (error) => {
-                console.log(error)
-            });
+            for (i = 0; i < this.len; i++) {
+              this.totalCost[i] = this.orders[i].totalPrice;
+              this.orderdate.push(this.orders[i].createdDate.substring(0, 10));
+              this.orderList.push({
+                pid: this.orders[i].id,
+                imageURL: this.orders[i].ordersItems[0].product.imageURL,
+                totalItems: this.orders[i].orderItems.length,
+              });
+            }
+          }
         },
+        (error) => {
+          console.log(error);
+        }
+      );
     },
+  },
 
-    mounted() {
-        this.token = localStorage.getItem('token');
-        this.listOrders();
-    },
+  mounted() {
+    this.token = localStorage.getItem("token");
+    this.listOrders();
+  },
 };
 </script>
 
 <style scoped>
-h4, h5 {
-    font-family: 'Roboto', sans-serif;
-    color: #484848;
-    font-weight: 700;
+h4,
+h5 {
+  font-family: "Roboto", sans-serif;
+  color: #484848;
+  font-weight: 700;
 }
 
 .embed-responsive .card-img-top {
-    object-fit: cover;
+  object-fit: cover;
 }
 </style>

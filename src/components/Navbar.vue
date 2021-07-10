@@ -44,7 +44,7 @@
               Contas
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Lista de Desejos</router-link>
+              <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Lista de Compras</router-link>
               <router-link class="dropdown-item" v-else :to="{name : 'Wishlist'}" >Lista de Desejos</router-link>
               <router-link class="dropdown-item"  :to="{name: 'Admin'}">Admin</router-link>
               <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Entrar</router-link>

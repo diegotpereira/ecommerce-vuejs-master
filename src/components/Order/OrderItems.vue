@@ -1,5 +1,5 @@
 <template>
-    <div class="conainer">
+    <div class="container">
         <div class="row">
             <div class="col-12 text-center">
                 <h4 class="pt-3">Pedido Id: - {{orderID}}</h4>
@@ -10,16 +10,16 @@
 
             </div>
             <div class="col-md-3 embed-responsive embed-responsive-16by9">
-                <img v-bind="orderProducts[itr-1].imgUrl" class="w-100 card-img-top embed-responsive-item">
+                <img v-bind:src="orderProducts[itr-1].imgUrl" class="w-100 card-img-top embed-responsive-item">
             </div>
             <div class="col-md-5 px-3">
                 <div class="card-block px-3">
                     <h6 class="card-title">{{orderProducts[itr-1].pName}}</h6>
                     <p id="item-price" class="mb-0 font-weight-bold">
-                        <sup>R$</sup>{{prderProducts[itr-1].pPrice}} por unidade.
+                        <sup>R$</sup>{{orderProducts[itr-1].pPrice}} por unidade.
                     </p>
                     <p id="item-quantity" class="mb-0">
-                        Quantidade : Quantidade : {{orderProducts[itr-1].pQuantity}}
+                        Quantidade : Quantity : {{orderProducts[itr-1].pQuantity}}
                     </p>
 
                     <p id="item-total-price" class="mb-0">
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'OrderItems',
     props: ["orderID", "baseURL"],
@@ -65,7 +66,7 @@ export default {
                     this.totalCost = this.product.totalPrice
                     this.product.orderItems.forEach(item => {
                         this.orderProducts.push({
-                            imgURL: item.product.imageURL,
+                            imgUrl: item.product.imageURL,
                             pName: item.product.name,
                             pDescription: item.product.description,
                             pPrice: item.product.price,

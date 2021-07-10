@@ -21,6 +21,8 @@ import EditProduct from "../views/Product/EditProduct.vue";
 
 // Pedidos Rota
 import Order from "../views/Orders/Order.vue";
+import OrderItemView from "../views/Orders/OrderItemView.vue";
+
 
 // Carrinho Rota
 import Cart from "../views/Cart/Cart.vue";
@@ -32,6 +34,11 @@ import ListProducts from "../views/Category/ListProducts.vue";
 import EditCategory from "../views/Category/EditCategory.vue";
 import AddCategory from "../views/Category/AddCategory.vue";
 
+//
+import Checkout from "../views/Checkout/Checkout.vue";
+
+import Success from "../helper/payment/Success.vue";
+import Failed from "../helper/payment/Failed.vue";
 
 const routes = [
   {
@@ -91,16 +98,6 @@ const routes = [
     component: Wishlist
   },
 
-
-  // Pedidos Rota
-  {
-    path: '/order',
-    name: 'Order',
-    component: Order
-  },
-
-
-
   // Carrinho Rota
   {
     path: '/cart',
@@ -141,6 +138,36 @@ const routes = [
     path: '/admin/category/:id',
     name: 'EditCategory',
     component: EditCategory
+  },
+
+    // Pedidos Rota
+    {
+      path: '/order',
+      name: 'Order',
+      component: Order
+    },
+    {
+    path:'/order/:id', 
+    name:'OrderItemView',
+    component:OrderItemView
+  },
+
+  // Rota Checkout
+  {
+    path : '/checkout',
+    name : 'Checkout',
+    component : Checkout
+  },
+
+  {
+    path: '/payment/success',
+    name: 'PaymentSuccess',
+    component:Success
+  },
+  {
+    path: '/payment/failed',
+    name: 'FailedPayment',
+    component:Failed
   },
 
 ];
