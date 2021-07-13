@@ -25,7 +25,7 @@ export default {
   
   data() {
     return {
-      baseURL : "https://limitless-lake-55070.herokuapp.com/",
+      baseURL : "http://localhost:8080/api/",
       //baseURL : "http://localhost:8080/api/",
       products : null,
       categories : null,
@@ -37,7 +37,7 @@ export default {
     methods : {
     async fetchData() {
       // fetch products
-      await axios.get(this.baseURL + "product/")
+      await axios.get(this.baseURL + "products/")
       .then(res => this.products = res.data)
       .catch(err => console.log(err))
       //fetch categories

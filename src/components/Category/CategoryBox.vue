@@ -11,7 +11,7 @@
                 </h5>
             </router-link>
 
-            <p class="card-text font-italic">
+            <p class="card-text font-italic" v-if="category.description">
                 {{category.description.substring(0,65)}}...
             </p>
 
