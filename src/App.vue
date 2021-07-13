@@ -37,7 +37,9 @@ export default {
     methods : {
     async fetchData() {
       // fetch products
-      await axios.get(this.baseURL + "products/")
+      
+      await axios.get(this.baseURL + "product/")
+      
       .then(res => this.products = res.data)
       .catch(err => console.log(err))
       //fetch categories
