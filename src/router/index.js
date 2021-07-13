@@ -9,6 +9,9 @@ import Signup from "../views/Signup.vue";
 
 //Admin routes
 import Admin from "../views/Admin/Admin.vue";
+import Gallery from "../views/Admin/Gallery.vue"
+import AddImage from "../views/Admin/AddImage.vue"
+
 
 // Produto Rotas
 import AddProduct from "../views/Product/AddProduct.vue";
@@ -76,6 +79,12 @@ const routes = [
   },
 
   {
+    path: '/admin/product',
+    name: 'AdminProduct',
+    component: Product
+  },
+
+  {
     path: '/product/show/:id',
     name: 'ShowDetails',
     component: ShowDetails
@@ -90,6 +99,20 @@ const routes = [
     path: '/admin/product/add',
     name: 'AddProduct',
     component: AddProduct
+  },
+
+
+  // Rotas Galeria
+
+  {
+    path : '/admin/gallery',
+    name : 'Gallery',
+    component : Gallery
+  },
+  {
+    path : '/admin/gallery/add',
+    name : 'AddImage',
+    component : AddImage 
   },
 
   {

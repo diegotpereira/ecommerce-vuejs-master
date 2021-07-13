@@ -21,7 +21,7 @@
 
 <script>
 import ImageBox from "../../components/Image/ImageBox.vue";
-
+import axios from 'axios'
 export default {
     name: 'Gallery',
     components: {ImageBox},
@@ -42,7 +42,7 @@ export default {
 
     mounted() {
         if (!localStorage.getItem('token')) {
-            THIS.$ROUTER.PUSH({NAME : 'Signin'});
+            this.$router.push({name : 'Signin'});
 
             return;
         }

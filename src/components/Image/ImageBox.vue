@@ -8,6 +8,9 @@
 </template>
 
 <script>
+
+import swal from 'sweetalert'
+
 export default {
   name : 'ImageBox',
   props : ["image"],
