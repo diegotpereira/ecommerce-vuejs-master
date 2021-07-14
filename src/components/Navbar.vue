@@ -45,7 +45,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Lista de Compras</router-link>
-              <router-link class="dropdown-item" v-else :to="{name : 'Wishlist'}" >Lista de Desejos</router-link>
+              <router-link class="dropdown-item" v-else :to="{name : 'Wishlist'}" >Lista de Compras</router-link>
               <router-link class="dropdown-item"  :to="{name: 'Admin'}">Admin</router-link>
               <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Entrar</router-link>
               <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signup'}">Inscrever-se</router-link>
@@ -86,7 +86,7 @@ export default {
       this.$router.push({ name: 'Home'});
 
       swal({
-        text: "Você sai da conta. Entre novamente",
+        text: "Você saiu da conta. Entre novamente",
         icon: "success",
         closeOnClickOutside: false,
       });

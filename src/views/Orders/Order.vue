@@ -1,11 +1,11 @@
-<template>
+<template v-if="orders">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
                 <h4 class="pt-3">Seus Pedidos</h4>
             </div>
         </div>
-        <div v-for="itr in len" :key="itr" class="row mt-2 pt-3 justify-content-around">
+        <div  v-for="itr in len" :key="itr" class="row mt-2 pt-3 justify-content-around">
             <div class="col-2"></div>
                 <div class="col-md-3 embed-responsive embed-responsive-16by9">
                     <img v-bind:src="orderList[itr-1].imageURL" class="w-100 card-img-top embed-responsive-item">
@@ -44,13 +44,13 @@ import axios from "axios";
 export default {
   data() {
     return {
-      order: [],
+      orders: [],
       token: null,
       len: 0,
       orderList: [],
       totalCost: [],
-      orderdate: [],
-    };
+      orderdate: []
+    }
   },
 
   props: ["baseURL"],
@@ -61,23 +61,23 @@ export default {
       axios.get(`${this.baseURL}order/?token=${this.token}`).then(
         (response) => {
           if (response.status == 200) {
-            this.orders = response.data;
-            this.len = Object.keys(this.orders).length;
-            let i;
+            this.orders = response.data
+            this.len = Object.keys(this.orders).length
+            let i
 
             for (i = 0; i < this.len; i++) {
-              this.totalCost[i] = this.orders[i].totalPrice;
-              this.orderdate.push(this.orders[i].createdDate.substring(0, 10));
+              this.totalCost[i] = this.orders[i].totalPrice
+              this.orderdate.push((this.orders[i].createdDate).substring(0, 10))
               this.orderList.push({
                 pid: this.orders[i].id,
-                imageURL: this.orders[i].ordersItems[0].product.imageURL,
-                totalItems: this.orders[i].orderItems.length,
-              });
+                imageURL: this.orders[i].orderItems[0].product.imageURL,
+                totalItems: this.orders[i].orderItems.length
+              })
             }
           }
         },
         (error) => {
-          console.log(error);
+          console.log(error)
         }
       );
     },
