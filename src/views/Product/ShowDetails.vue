@@ -10,7 +10,7 @@
           <div class="col-md-6 col-12 pt-3 pt-md-0">
               <h4>{{product.name}}</h4>
               <h6 class="category font-italic">{{category.categoryName}}</h6>
-              <!--<p><span class="font-weight-bold">Descrição: -</span> <br>{{product.description}}</p>--->
+              <p><span class="font-weight-bold">Descrição: -</span> <br>{{product.description}}</p>
 
               <div class="d-flex flex-row justify-content-between">
                   <div class="input-group col-md-3 col-4 p-0">
@@ -37,7 +37,7 @@
                   </ul>
               </div>
 
-              <button id="wishlist-button" class="btn mr-3 p-1 py-0" :class="{product_added_wishlist: isAddedToWishlist}" @click="addToWishlist(this.id)">
+              <button id="wishlist-button" class="btn mr-3 p-1 py-0" :class="{product_added_wishlist: isAddedToWishlist}" @click="addToWishList(this.id)">
                   {{wishlistString}}
               </button>
 

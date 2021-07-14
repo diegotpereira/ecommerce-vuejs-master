@@ -1,6 +1,6 @@
 <template>
     <OrderItems
-       :orderId="this.$router.params.id"
+       :orderID="this.$route.params.id"
        :baseURL = "baseURL" />
 </template>
 
